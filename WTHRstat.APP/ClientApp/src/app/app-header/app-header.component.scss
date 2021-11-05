@@ -1,0 +1,26 @@
+.btn {
+    margin: 10px;
+    border-style: inset;
+}
+.container {
+    margin-bottom: 30px;
+}
+.img {
+    border-style: double;
+    margin-left: 40px;
+}
+.navbar {
+    background: url(../images/pexels-s-migaj-747964.jpg) no-repeat
+      center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-bottom: 30px;
+}
+.navbar-brand {
+    color: black;
+}
+.nav-item {
+    background: rgba(255, 255, 255, 0.61);
+}

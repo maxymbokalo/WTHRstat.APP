@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.VisualBasic;
 
 namespace WTHRstat.APP.Models
@@ -7,9 +8,10 @@ namespace WTHRstat.APP.Models
     {
         public int Id { get; set; }
         public int Source_Id { get; set; }
-        public int Count { get; set; }
-        public string Name { get; set; }
-        public string Date { get; set; }
+        public int Concentration { get; set; }
+        public string Units { get; set; }
+        public string Pollutant { get; set; }
+        public DateTime Date { get; set; }
 
         public SourceERD Source { get; set; }
     }

@@ -1,13 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WTHRstat.APP.Models
 {
     public class SourceERD
     {
         public int Id { get; set; }
-        public int Emission_Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public EmissionERD Emission { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public List<EmissionERD> Emissions { get; set; }
     }
 }

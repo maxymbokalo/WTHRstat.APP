@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using WTHRstat.APP.Models;
 
 namespace WTHRstat.APP.EntityFramework
@@ -16,33 +17,33 @@ namespace WTHRstat.APP.EntityFramework
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<EmissionERD>()
-                .HasOne(u => u.Source)
-                .WithOne(a => a.Emission)
-                .HasForeignKey<SourceERD>(a => a.Emission_Id);
+                .HasOne(e => e.Source)
+                .WithMany(s => s.Emissions)
+                .HasForeignKey(e => e.Source_Id);
 
             modelBuilder.Entity<EmissionERD>().HasData(
                 new EmissionERD
                 {
                     Id = 1,
-                    Name = "Emiss-23",
-                    Count = 23,
-                    Date = "23.23.2011",
+                    Pollutant = "Emiss-23",
+                    Concentration = 23,
+                    Date = new DateTime(2015, 12, 31, 5, 10, 20),
                     Source_Id = 1
                 },
                 new EmissionERD
                 {
                     Id = 2,
-                    Name = "Coqwe-211",
-                    Count = 25,
-                    Date = "23.23.2011",
+                    Pollutant = "Coqwe-211",
+                    Concentration = 25,
+                    Date = new DateTime(2015, 12, 31, 5, 10, 20),
                     Source_Id = 2
                 },
                 new EmissionERD
                 {
                     Id = 3,
-                    Name = "Rqeeq-214",
-                    Count = 51,
-                    Date = "23.23.2011",
+                    Pollutant = "Rqeeq-214",
+                    Concentration = 51,
+                    Date = new DateTime(2015, 12, 31, 5, 10, 20),
                     Source_Id = 3
                 });
 
@@ -50,23 +51,20 @@ namespace WTHRstat.APP.EntityFramework
                 new SourceERD
                 {
                     Id = 1,
-                    Name = "Emiss-23",
-                    Address = "Nrqr St.14 Ap.21",
-                    Emission_Id = 1
+                    Country = "India",
+                    City = "Bangladesh"
                 },
                 new SourceERD
                 {
                     Id = 2,
-                    Name = "Coqwe-211",
-                    Address = "Nragagag St.145 Ap.212",
-                    Emission_Id = 2
+                    Country = "Japan",
+                    City = "Tokyo"
                 },
                 new SourceERD
                 {
                     Id = 3,
-                    Name = "Rqeeq-214",
-                    Address = "Nrqexxx St.24 Ap.251",
-                    Emission_Id = 3
+                    Country = "Ukraine",
+                    City = "Kyiv"
                 });
         }
     }

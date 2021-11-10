@@ -10,15 +10,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmissionComponent } from './emission/emission.component';
 import { SourceComponent } from './source/source.component';
 import { BackgroundComponent } from './background/background.component';
+import { LinechartComponent } from './linechart/linechart.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule ,RouterModule.forRoot([
     {path:'emissions', component: EmissionComponent},
-    {path:'sources', component: SourceComponent}
+    {path:'sources', component: SourceComponent},
+    {path:'charts', component: LinechartComponent}
   ])
   ],
   declarations: [AppComponent, AppHeaderComponent, EmissionComponent, SourceComponent , AppHeaderComponent, FooterComponent,
-     BackgroundComponent],
+     BackgroundComponent,
+     LinechartComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,26 @@
+<div class="container">
+    <td>
+        <h4>City</h4>
+            <select type="number" class="form-control" [(ngModel)]="SearchSource.source_Id">
+                <option *ngFor="let s of sources" value={{s.id}}>{{s.city}}</option>
+            </select>
+      </td>
+      <td>
+        <h4>Start date</h4>
+        <input type="date" [(ngModel)]="SearchSource.startDate" class="form-control" />
+      </td>
+      <td>
+          <h4>End date</h4>
+          <input type="date" [(ngModel)]="SearchSource.endDate" class="form-control" />
+      </td>
+      <td>
+        <input type="button" value="Show LineChart" (click)="showChart()" class="btn btn-sm btn-success" />
+      </td>
+  </div>
+<div class="chart-container" style="position: relative; height:40vh; width:70vw">    
+    <canvas id="canvas"></canvas>    
+  </div>  
+  
+
+  
+    

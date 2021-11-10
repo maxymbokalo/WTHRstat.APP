@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WTHRstat.APP.EntityFramework;
 using WTHRstat.APP.Models;
+using WTHRstat.APP.ModelsERD;
 
 namespace WTHRstat.APP.Controllers
 {
@@ -79,6 +81,34 @@ namespace WTHRstat.APP.Controllers
             _dbContext.Emissions.Update(emission);
             _dbContext.SaveChanges();
             return Ok();
+        }/*
+        [Route("getdailyaqi")]
+        [HttpGet]
+        public IActionResult GetDailyAqi(string city, DateTime date)
+        {
+            var dailyAqi = GetAqi(city, date);
+
+            return Ok(new DailyAqiERD {
+                SourceName = city,
+                Aqi = dailyAqi,
+            });
         }
+        public IActionResult GetCityAqis(string city)
+        {
+
+            return Ok();
+        }
+        public double GetAqi(string city,DateTime date)
+        {
+            var sourceCity = _dbContext.Sources.FirstOrDefault(s => s.City == city);
+            IEnumerable<EmissionERD> cityEmissions = _dbContext.Emissions.Where(e => e.Source_Id == sourceCity.Id && e.Date.Date == date.Date);
+            var dailyAqi = 0;
+            foreach (EmissionERD em in cityEmissions)
+            {
+                dailyAqi += em.Concentration;
+            }
+            return dailyAqi;
+        }
+        */
     }
 }

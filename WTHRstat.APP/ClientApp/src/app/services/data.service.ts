@@ -3,6 +3,8 @@ import { HttpClient} from '@angular/common/http';
 import { Source } from '../models/source';
 import { Emission } from '../models/emission';
 import { Observable } from 'rxjs';
+import { ChartInf } from '../models/chartInf';
+import { Search } from '../models/search';
  
 @Injectable()
 export class DataService {

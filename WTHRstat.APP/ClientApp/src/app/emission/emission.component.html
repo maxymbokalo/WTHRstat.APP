@@ -61,10 +61,13 @@
         <input type="text" [(ngModel)]="emission.units" class="form-control" disabled/>
       </td>
       <td>
-        <input type="text" [(ngModel)]="emission.date" class="form-control" />
+        <input type="date" [(ngModel)]="emission.date" class="form-control" />
       </td>
       <td>
-        <input type="number" [(ngModel)]="emission.source_Id" class="form-control" />
+        <select type="number" class="form-control" [(ngModel)]="emission.source_Id" (ngModelChange)="formChanged()">
+          <option type="number" *ngFor="let s of sources" ngValue={{s.id}}>{{s.city}}</option>
+      </select>
+        <input type="number" [(ngModel)]="emission.source_Id" class="form-control" disabled/>
       </td>
       <td>
         <input type="button" value="Save" (click)="saveEmission()" class="btn btn-sm btn-success" />

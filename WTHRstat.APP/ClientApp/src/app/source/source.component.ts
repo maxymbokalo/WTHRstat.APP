@@ -30,6 +30,7 @@ export class SourceComponent implements OnInit {
       this.sourceTableMode = true;
       
         if (this.source.id == null) {
+          console.log(this.source);
             this.dataService.createSource(this.source)
                 .subscribe((data: Source) => this.sources.push(data));
         } else {

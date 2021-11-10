@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using WTHRstat.APP.Models;
+using WTHRstat.APP.ModelsERD;
 
 namespace WTHRstat.APP.EntityFramework
 {
